@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/randomPage.css">
+    <title>Get Movie Suggestions!</title>
+
+</head>
+
+<body>
+    <div class="wrapper container-fluid">
+        <partial name="NavbarPartial"></partial>
+        
+        <div class="main">
+
+        @{
+
+        <div class="randomPageForm form d-flex" style="justify-content:space-evenly" style="width: 25vw;">
+            <form class="randomPageFormClass" action="/random/{@ViewBag.genreOne}/{@ViewBag.genreTwo}/{@ViewBag.rating}/{@ViewBag.date}" method="post">
+                <h2 style="text-align:center">3 simple questions!</h2>
+                <div class="dropdownRow form-group">
+                    <label>1. Genre?</label>
+                    <span class="text-warning"></span>
+                        <select name="genreOne" class="dropdownClass form-select" required>
+                            <option value="">Select Genre 1</option>
+                            @* <option selected disabled>Select Genre</option> *@
+                            <option value="28">Action</option>
+                            <option value="12">Adventure</option>
+                            <option value="35">Comedy</option>
+                            <option value="80">Crime</option>
+                            <option value="99">Documentary</option>
+                            <option value="18">Drama</option>
+                            <option value="10751">Family</option>
+                            <option value="14">Fantasy</option>
+                            <option value="27">Horror</option>
+                            <option value="9648">Mystery</option>
+                            <option value="10749">Romance</option>
+                            <option value="878">Science Fiction</option>
+                            <option value="53">Thriller</option>
+                            <option value="37">Western</option>
+                        </select>
+                        <select name="genreTwo" class="dropdownClass form-select" required>
+                            <option value="">Select Genre 2</option>
+                            <option value="28">Action</option>
+                            <option value="12">Adventure</option>
+                            <option value="35">Comedy</option>
+                            <option value="80">Crime</option>
+                            <option value="99">Documentary</option>
+                            <option value="18">Drama</option>
+                            <option value="10751">Family</option>
+                            <option value="14">Fantasy</option>
+                            <option value="27">Horror</option>
+                            <option value="9648">Mystery</option>
+                            <option value="10749">Romance</option>
+                            <option value="878">Science Fiction</option>
+                            <option value="53">Thriller</option>
+                            <option value="37">Western</option>
+                        </select>
+                </div>
+                <div class="dropdownRow form-group" class="form-select" >
+                    <label>2. Do you care about ratings?</label>
+                    <span class="text-warning"></span>
+                        <select name="rating" class="dropdownClass form-select" required>
+                            <option value="">Yes or No? </option>
+                            <option value="6">Of course!</option>
+                            <option value="2">Nope!</option>
+                        </select>
+                </div>
+                <div class="dropdownRow form-group">
+                    <label>3. Like old movies?</label>
+                    <span class="text-warning"></span>
+                        <select name="date" class="dropdownClass form-select" required>
+                            <option value="">Yes or No? </option>
+                            <option value="&release_date.lte=2000-01-01">Yes</option>
+                            <option value="&release_date.gte=2000-01-01">No</option>
+                        </select>
+                </div>
+                
+                <div class="buttonClass col text-center">
+                    <button class="btn btn-warning">get movies!</button>
+                </div>
+            
+
+            </form>
+        </div>
+        }
+
+          </div>
+    </div>
+</body>
+
+</html>

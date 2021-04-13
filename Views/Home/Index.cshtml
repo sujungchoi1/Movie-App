@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>CinePhil</title>
+
+</head>
+@model IEnumerable<Result>
+@{
+    int[] pages = new int[]
+    {
+        1,2,3,4,5,6,7,8,9,10
+    };
+}
+
+<body>
+    <div class="wrapper container-fluid">
+        <partial name="NavbarPartial"></partial>
+        @* filter toggle *@
+        @* <div class="buttonRow"> *@
+
+            <div class="filterButtons btn-group" role="group">
+                @* if route is index, display color button, otherwise, display outline button *@
+
+                @if(ViewBag.upcoming == true)
+                {
+                <a href="/" class="btn btn-outline-secondary">Top Rated</a>    
+                <a href="/upcoming" class="btn btn-secondary">Upcoming</a>
+                }
+                else
+                {
+                <a href="/" class="btn btn-secondary">Top Rated</a>
+                <a href="/upcoming" class="btn btn-outline-secondary">Upcoming</a>
+                }
+                <a href="/random" class="btn btn-outline-secondary">Want Suggestions?</a>
+                @* <select name="Genre" id="">
+                    <option value="">Action</option>
+                </select> *@
+            </div>
+            @* <div>
+                <button type="button" class="randomButton btn btn-outline-warning">Give me some suggestions!</button>
+            </div> *@
+        @* </div> *@
+        @* popular movie listing *@
+        <div class="mainGroup d-flex flex-wrap justify-content-md-between justify-content-center">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+
+                @foreach (var r in Model)
+                {
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="card">
+                            <a href="/movie/@r.id">
+                                    @if(@r.poster_path == null)
+                                    {
+                                        <img src="https://image.tmdb.org/t/p/w500/zYPsleQJo1n1rBPlecJBRb3iwSO.jpg" class="card-img-top" alt="@r.title">
+                                    }
+                                    else
+                                    {
+                                    <img src="https://image.tmdb.org/t/p/w500/@r.poster_path" class="card-img-top" alt="@r.title">
+                                    }
+                            </a>
+                            
+                            <div class="cardBody card-body">
+                                <div style="display:flex;justify-content:space-between">
+
+                                    <div class="title mb-1 mr-4 card-title">@r.title</div>
+                                    @if(@r.vote_average > 7)
+                                    {
+                                    <span class="rating card-text" style="border:3px double forestGreen;">@r.vote_average </span>
+                                    }
+                                    else if(@r.vote_average > 5)
+                                    {
+                                    <span class="rating card-text" style="border:3px double rgb(216, 203, 54);">@r.vote_average </span>
+                                    }
+                                    else
+                                    {
+                                    <span class="rating card-text" style="border:3px double darkOrange;">@r.vote_average </span>
+                                    }
+                                </div>
+                                @* @foreach (var g in Genre)
+                                    {
+                                    List all genres available
+                                    } *@
+                                @* <p class="genre card-text">@r.genre_ids[0] </p> *@
+                            </div>
+                            @* only shows if the user is logged in *@
+                            @* @if(ViewBag.CurrentUser != null)
+                            {
+                                @foreach(Watch watch in ViewBag.thisUser.WatchedMovies)
+                                {
+                                    if(r.id == watch.MovieId)
+                                    {
+                                        <a class="watchList btn btn-danger" href="/remove-watch/@r.id">Remove from Watch List</a>
+                                        ViewBag.watched = false;
+                                        break;
+                                    }
+                                    
+                                }
+                            } *@
+                            
+                                @* if(!ViewBag.watched){
+                                    <a class="watchList btn btn-primary" href="/watch/@r.id/@r.title">Add to Watch List</a>                   
+                                } *@
+                            
+                            @* @if (ViewBag.currentUser != null)
+                            {
+                            <a class="watchList btn btn-primary" href="/watch/@r.id/@r.title">Add to Watch List</a>
+                            } *@
+                        </div>
+                    </div>
+                    
+                }
+
+
+
+            </div>
+
+
+        </div>
+        
+        @* pagination *@
+        <div class="pages">
+            @if(ViewBag.upcoming != true)
+            {
+                @foreach (var p in pages)
+                {
+                    @if(ViewBag.currentPage == @p || ViewBag.currentPage == null)
+                    {
+                        <a href="/@p">@p</a>
+                    }
+                    else
+                    {
+                        <a href="/@p" style="text-decoration:underline">@p</a>
+                    }
+                @if(@p != 10)
+                {
+                    <div class=divider></div>
+                }
+                }
+            }
+            else if(ViewBag.upcoming == true)
+            {
+                @foreach (var p in pages)
+                {
+                    @if(ViewBag.upcomingPage == @p || ViewBag.upcomingPage == null)
+                    {
+                        <a href="/upcoming/@p">@p</a>
+                    }
+                    else
+                    {
+                        <a href="/upcoming/@p" style="text-decoration:underline">@p</a>
+                    }
+                @if(@p != 10)
+                {
+                    <div class=divider></div>
+                }
+                }
+            }
+
+
+        </div>
+    </div>
+</body>
+
+</html>

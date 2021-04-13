@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/randomResult.css">
+    <title>CinePhil</title>
+
+</head>
+@* @model IEnumerable<Result> *@
+
+
+<body>
+    <div class="wrapper container-fluid">
+        <partial name="NavbarPartial"></partial>
+        @* filter toggle *@
+
+        <div class="main">
+            @{
+            <h2 style="color: white;text-align:center;margin:60px auto;">Can't find what you like? Try again!</h2>
+            <div class="randomButton text-center" style="margin-bottom: 100px;">
+                <a href="/random" class="backToForm btn btn-warning">Get me different movies <i class="fa fa-film"></i></a>
+            </div>
+            }
+
+
+                     
+
+        </div>
+    </div>
+</body>
+
+</html>

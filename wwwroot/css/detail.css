@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&family=RocknRoll+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    /* font: 13px 'Roboto', sans-serif; */
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+  
+.wrapper {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover auto;
+    background-color: #464646;
+    opacity: 0.9;
+    /* height: 100%; */
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20vh 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.poster {
+    border:none;
+}
+.poster img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.content {
+    color: white;
+    background-color: rgb(83, 81, 81, 0.8);
+    padding: 50px;
+    padding-left: 70px;
+    border-radius: 0 10px 10px 0;
+}
+    .content h1 {
+        font-size: 50px;
+    }
+
+    .content h5 {
+        margin: 15px 0 20px;
+    }
+
+    .content .tagline {
+        font-style: italic;
+    }
+
+    .content h4 {
+        font-weight: bold;
+        font-size: 27px;
+        margin: 20px 0 12px;
+    }
+
+    .content h6 {
+        font-size: 18px;
+        font-weight: lighter;
+        line-height: 1.3;
+    }
+
+
+
+.iconGroup {
+    display: flex;
+    justify-content: space-around;
+    width: 20vw;
+    align-items: baseline;
+    margin-left: -2%;
+}
+
+    .iconGroup i {
+        border-radius: 50%;
+        width: 43px;
+        height: 43px;
+        padding: 10px;
+    
+        background: #fff;
+        border: 2px solid #666;
+        color: #666;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        font-size: 23px;
+        font: 'Roboto', sans-serif;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .icon:hover + .hide{
+        display: block;
+        color: pink;
+    }
+
+    .icon {
+        border: 1px solid transparent;
+    }
+
+    .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        padding: 8px;
+    
+        background: #fff;
+        border: 3px solid #666;
+        color: #666;
+        
+        font-size: 23px;
+        font: 'Roboto', sans-serif;
+    }
+
+
+    /* email pop-up */
+
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border-radius: 5px;
+    z-index: 9;
+    color: rgb(63, 62, 62);
+  }
+
+  .form-container {
+    max-width: 370px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .form-container h4 {
+      margin: 10px 0;
+      font-size: 21px;
+  }
+
+  .form-container .labelGroup {
+      font-size: 15px;
+      text-decoration: underline;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 3px 0 11px 0;
+    border: none;
+    border-radius: 3px;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  .form-container .btn {
+    background-color: #60b863;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    margin-top: 17px;
+  }
+  
+  .form-container .cancel {
+    background-color: rgb(198, 98, 98);
+    margin-left: 10px;
+  }
+  
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }

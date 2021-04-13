@@ -1,0 +1,81 @@
+<style>
+    .header {
+    color: white;
+    background-color: rgb(33, 33, 33, 0.8);
+    height: 12vh;
+    @* padding: 2vh 0; *@
+    }
+    .userHeader {
+    display: flex;
+    @* justify-content: space-around; *@
+    align-items: baseline;
+    style="font-family: 'Nunito', sans-serif;"
+    }
+    .userHeader p {
+        margin-right: 20px;
+        font-size: 1.4vw;
+    }
+    .userHeader i {
+        font-size: 1.5vw;
+        margin: 7px 10px 0 14px;
+    }
+    .github_icon{
+        color:white;
+        font-size: 23px;
+        margin-right: 22px;
+    }
+</style>
+
+<nav class="header navbar fixed-top navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" style="color:white;font-size:34px"><i class="fa fa-video" style="margin-right: 10px"></i>CinePhil</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        @* <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/" style="color:white;margin-right:20px">Home</a>
+                        </li> *@
+                    
+
+                        <li class="nav-item">
+                
+                    @{
+
+                    <form action="/search/{@ViewBag.title}" class="d-flex" method="post">
+                        
+                        <input name="searchTitle" class="form-control me-2" type="search" placeholder="Search by movie title" style="width: 230px;margin-left:20px">
+                        @* <button class="btn btn-outline-success" type="submit">Search</button> *@
+                    </form> 
+                    }
+                    
+
+                        </li>
+                    
+                    
+                        
+                        <li class="nav-item"><a href="https://www.themoviedb.org" style="margin-left:25px" target="_blank" rel="noreferrer noopener">
+                            <img src="/img/blue_square.svg" alt="tmdbIcon" style="width:60px">
+                            </a> </li>
+                    </ul>
+                    <div class="justify-content-end collapse navbar-collapse">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            @* replace with the movieAPI icon *@
+                            @if(ViewBag.currentUser == null)
+                            {
+                            <a href="https://github.com/sujungchoi1/Movie-App" class="github_icon" target="_blank" rel="noreferrer noopener"><i class="fa fa-github"></i></a>
+                            <a href="/login" class="btn btn-primary" style="font-family: 'Nunito', sans-serif;">SIGN IN</a>
+                            }
+                            else
+                            {
+                                <div class="userHeader">
+
+                                <p>Welcome, @ViewBag.currentUser.FirstName! <a href="/dashboard"><i class="far fa-list-alt"></i>Dashboard</a></p>
+                                <a href="/logout" class="btn btn-danger" style="font-family: 'Nunito', sans-serif;">LOG OUT</a>
+                                </div>
+                            }
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>

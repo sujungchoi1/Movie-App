@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Register</title>
+
+</head>
+
+<body>
+    @model LoginUser
+    <div class="wrapper">
+
+        <partial name="NavbarPartial"></partial>
+
+        <div class="loginForm form d-flex" style="justify-content:space-evenly" style="width: 25vw;">
+            <form class="loginFormClass" action="/login-process" method="post">
+                <h2 style="text-align:center">Sign In</h2>
+                <div class="form-group">
+                    <label asp-for="LoginEmail"></label>
+                    <span asp-validation-for="LoginEmail" class="text-warning"></span>
+                    <input asp-for="LoginEmail" class="form-control"></label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LoginPassword"></label>
+                    <span asp-validation-for="LoginPassword" class="text-warning"></span>
+                    <input asp-for="LoginPassword" class="form-control"></label>
+                </div>
+                <div class="col text-center" style="margin:30px 0">
+                    <button class="btn btn-danger">Sign In</button>
+                </div>
+                <div class="col text-center">
+                    <h5>Not a member yet? <a href="/register"> Click here to register!</a></h5>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

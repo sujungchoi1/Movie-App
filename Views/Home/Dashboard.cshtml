@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>CinePhil</title>
+
+</head>
+@model Watch
+
+<body>
+    <div class="wrapper container-fluid">
+        <partial name="NavbarPartial"></partial>
+        @* filter toggle *@
+        <div class="main">
+            <h1 class="dashboardHeader">Check out your saved movies, @ViewBag.CurrentUser.FirstName!</h1>
+        <table class="table">
+            <tr>
+                <th>Movie Title</th>
+                @* <th>Liked By</th> *@
+                <th>Movie Added at</th>
+                <th>Action</th>
+            </tr>
+            @foreach(var w in ViewBag.MoviesToWatch)
+                {
+                @if(@ViewBag.CurrentUser.UserId == w.UserWhoWatches.UserId)
+                {
+                    <tr>
+                    <td><a href="/movie/@w.MovieId">@w.MovieTitle</a></td>
+                    @* <td> *@
+                        @* @ViewBag.MovieLikes.UserWhoLikes.FirstName *@
+
+                    @* </td> *@
+                    <td>@w.CreatedAt.ToString("d")</td>
+                    <td><a href="watch/@w.MovieId/@w.MovieTitle/delete"><i class="fa fa-trash-alt"></i></a></td> 
+                    </tr>
+                }
+                }
+        </table>
+
+        <ul class="likeClass"><i class="fa fa-heart" style="color: pink"></i> by you 
+            @foreach (var l in ViewBag.MovieLikes)
+            {
+            @if(@ViewBag.CurrentUser.UserId == l.UserWhoLikes.UserId)
+            {
+                <li class="likeLiClass"><a href="/movie/@l.MovieId">@l.MovieTitle</a> <a href="like/@l.MovieId/@l.MovieTitle/delete"><i class="fa fa-heart-broken"></i></a> </li>
+            }
+            }
+        </ul>
+            
+        </div>
+
+
+
+
+
+    </div>
+</body>
+
+</html>

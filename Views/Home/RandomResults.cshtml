@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/randomResult.css">
+    <title>CinePhil</title>
+
+</head>
+@model IEnumerable<Result>
+
+
+<body>
+    <div class="wrapper container-fluid">
+        <partial name="NavbarPartial"></partial>
+
+        <div class="main">
+        @* @if(ViewBag.Counter == null || ViewBag.Counter < 3)
+        { *@
+
+        @{
+            <div class="randomButton text-center">
+                <a href="/random" class="backToForm btn btn-warning">Get me different movies <i class="fa fa-film"></i></a>
+                <a href="/random/reload/@ViewBag.genreOne/@ViewBag.genreTwo/@ViewBag.rating/@ViewBag.date" class="reload btn btn-success"><i class="fa fa-sync-alt"></i></a>
+            </div>
+
+        }
+            <div style="margin-top: 30px;" class="mainGroup row d-flex justify-content-md-between justify-content-center">
+                
+                
+
+                <div class="cardRow row">
+
+                    @foreach (var r in Model)
+                    {
+                        <div class="col-sm">
+                            <div class="card">
+                                <a href="/movie/@r.id">
+                                    @if(@r.poster_path == null)
+                                    {
+                                        <img src="https://image.tmdb.org/t/p/w500/zYPsleQJo1n1rBPlecJBRb3iwSO.jpg" class="card-img-top" alt="@r.title">
+                                    }
+                                    else
+                                    {
+                                    <img src="https://image.tmdb.org/t/p/w500/@r.poster_path" class="card-img-top" alt="@r.title">
+                                    }
+                                </a>
+                                
+                                <div class="cardBody card-body">
+                                    <div style="display:flex;justify-content:space-between">
+
+                                        <div class="title mb-1 mr-4 card-title">@r.title</div>
+                                        @if(@r.vote_average > 7)
+                                    {
+                                    <span class="rating card-title" style="border:3px double forestGreen;">@r.vote_average </span>
+                                    }
+                                    else if(@r.vote_average > 5)
+                                    {
+                                    <span class="rating card-title" style="border:3px double rgb(216, 203, 54);">@r.vote_average </span>
+                                    }
+                                    else
+                                    {
+                                    <span class="rating card-title" style="border:3px double darkOrange;">@r.vote_average </span>
+                                    }
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+            
+
+        @* }
+        else
+        {
+            <h2 style="color: white;text-align:center;margin:60px auto;">Can't find what you like? Try again!</h2>
+            <div class="randomButton text-center" style="margin-bottom: 100px;">
+                <a href="/random" class="backToForm btn btn-warning">Get me different movies <i class="fa fa-film"></i></a>
+            </div>
+        } *@
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&family=RocknRoll+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+  
+
+.wrapper {
+    background-image: url("/img/movie.jpg");
+    background-position: 50%;
+    background-size: cover !important;
+    /* width: 100% !important; */
+    /* min-height: 100% !important; */
+    /* object-fit: contain; */
+    background-color: rgba(156, 221, 241, 0.6);
+	overflow:scroll;
+    height: 100% !important;
+    opacity: 0.9;
+}
+
+.main {
+    background-color: rgba(60, 58, 58, 0.6);
+    /* background-image: url("/img/movie.jpg"); */
+    background-position: 50%;
+    background-size: cover !important;
+    border-radius: 10px;
+    width: 85%;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.dashboardHeader {
+    margin: 20vh 0 0 10vw;
+    font-size: 40px;
+    color: rgb(133, 230, 252);
+    font-family: Montserrat, sans-serif;
+    padding-top: 30px;
+}
+
+.table {
+    margin: 50px auto;
+    width: 80%;
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.table td, th, a {
+    color: white;
+}
+
+.likeClass {
+    margin: 0 auto;
+    width: 75%;
+    color: white;
+    font-size: 32px;
+    /* font-weight: lighter; */
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+
+
+.likeLiClass {
+    font-size: 23px;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <title>CinePhil</title>
+    <style>
+        .wrapper {
+            background-image: url("https://image.tmdb.org/t/p/original/@ViewBag.backdrop_path");
+        }
+    </style>
+
+</head>
+@* @model IEnumerable<Result> *@
+
+<body>
+    <div class="wrapper container-fluid">
+        <partial name="NavbarPartial"></partial>
+        @* filter toggle *@
+        <div class="main">
+            <div class="poster">
+                <img alt="" src="https://image.tmdb.org/t/p/w500/@ViewBag.poster_path">
+            </div>
+            <div class="content">
+                <h1>@ViewBag.title</h1>
+                <h5>@ViewBag.release_date <i class="fa fa-circle" style="font-size:5px"></i> 
+                @foreach(var g in ViewBag.ThisMovie.genres)
+                {
+                    @g.name <i class="fa fa-circle" style="font-size:5px"></i>
+                }
+                @* @ViewBag.genre  *@
+                @ViewBag.runtimeHour h @ViewBag.runtimeMinute m</h5>
+                <div class="iconGroup">
+                    @* <h4 class="rating">@ViewBag.vote_average</h4> *@
+                    @if(@ViewBag.vote_average > 7)
+                    {
+                    <span class="rating card-text" style="border:3px double forestGreen;">@ViewBag.vote_average </span>
+                    }
+                    else if(@ViewBag.vote_average > 5)
+                    {
+                    <span class="rating card-text" style="border:3px double rgb(216, 203, 54);">@ViewBag.vote_average </span>
+                    }
+                    else
+                    {
+                    <span class="rating card-text" style="border:3px double darkOrange;">@ViewBag.vote_average </span>
+                    }
+                    <a href="/like/@ViewBag.id/@ViewBag.title" style="text-decoration:none"><i class="icon fa fa-heart"></i><div class="hide">Like</div></a>
+                    <a href="/watch/@ViewBag.id/@ViewBag.title" style="text-decoration:none"><i class="icon fa fa-bookmark"></i><div class="hide">Save</div></a>
+                    <a style="text-decoration:none" class="open-button" onclick="openForm()"><i class="icon fa fa-envelope"></i><div class="hide">Email</div></a>
+                </div>
+                <h5 class="tagline">@ViewBag.tagline</h5>
+                <h4>Overview</h4>
+                <h6>@ViewBag.overview</h6>
+            </div>
+            @{
+
+            <div class="form-popup" id="myForm">
+                <form action="/email/@ViewBag.id" method="post" class="form-container">
+                    <h4>Share this movie with a friend!</h4>
+
+                    <label for="sender" class="labelGroup">From:</label>
+                    <input type="text" placeholder="Your name" name="sender">
+                    
+                    <label for="to" class="labelGroup">To:</label>
+                    <input type="text" placeholder="Enter your friend's email address" name="toEmail" required>
+
+                    <label><i>hey, thought you might like this movie!</i></label>
+                    <input type="text" placeholder="additional message" name="body">
+
+                    <div class="buttonGroup d-flex">
+                        <button type="submit" class="btn">Send</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    </div>
+                </form>
+                </div>
+            }
+
+                <script>
+                function openForm() {
+                document.getElementById("myForm").style.display = "block";
+                }
+
+                function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+                }
+                </script>
+
+            
+        </div>
+
+
+
+
+
+    </div>
+</body>
+
+</html>
