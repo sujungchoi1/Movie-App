@@ -45,7 +45,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/discover/movie?api_key=[API Key]&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc"))
+                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -68,7 +68,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=[API Key]&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc&page={pageNum}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc&page={pageNum}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -93,7 +93,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=[API Key]"))
+                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=c2dc9f4c917b757a08a6c9fff8784481"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -113,7 +113,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=[API Key]&page={pageNum}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=c2dc9f4c917b757a08a6c9fff8784481&page={pageNum}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -134,7 +134,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/search/movie?api_key=[API Key]&query={searchTitle}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/search/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&query={searchTitle}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -168,7 +168,7 @@ namespace MovieApp.Controllers
 
         //     using (var httpClient = new HttpClient())
         //     {
-        //         using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{randomNum}?api_key=[API Key]&language=en-US"))
+        //         using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{randomNum}?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US"))
         //         {
         //             string apiResponse = await response.Content.ReadAsStringAsync();
         //             Console.WriteLine(apiResponse);   
@@ -202,7 +202,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=[API Key]&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -227,7 +227,7 @@ namespace MovieApp.Controllers
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=[API Key]&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -380,11 +380,11 @@ namespace MovieApp.Controllers
             MailMessage message = new MailMessage(from, to);
             message.Subject = $"Check out this movie from {sender}!";
             // ViewBag.subject = message.Subject;
-            message.Body = $"hey, thought you might like this movie! \n \n http://cinephil.azurewebsites.net/movie/{movieId}! \n \n {body}";
+            message.Body = $"hey, thought you might like this movie! \n \n http://cine-phil.azurewebsites.net/movie/{movieId}! \n \n {body}";
             // ViewBag.bodyMsg = $"Hey, check out this movie! http://localhost:5000/movie/{movieId}!";
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
-            Credentials = new NetworkCredential("cinephilrecommends", "[password]"),
+            Credentials = new NetworkCredential("cinephilrecommends", "Cinephil0!@"),
             EnableSsl = true
             };
             // code in brackets above needed if authentication required 
@@ -417,7 +417,7 @@ namespace MovieApp.Controllers
             // Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{movieId}?api_key=[API Key]&language=en-US"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{movieId}?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     // Console.WriteLine(apiResponse);   
