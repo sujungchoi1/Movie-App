@@ -61,3 +61,4 @@
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/nuget.config
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/pub/appsettings.json
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/pub/pub/appsettings.json
+/Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/specialappsettings.config
