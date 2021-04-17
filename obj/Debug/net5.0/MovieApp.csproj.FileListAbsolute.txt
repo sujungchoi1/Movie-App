@@ -59,3 +59,5 @@
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/obj/Debug/net5.0/Razor/Views/Home/RandomResults.cshtml.g.cs
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/obj/Debug/net5.0/Razor/Views/Home/NoMoreResult.cshtml.g.cs
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/nuget.config
+/Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/pub/appsettings.json
+/Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/pub/pub/appsettings.json
