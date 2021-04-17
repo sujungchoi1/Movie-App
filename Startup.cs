@@ -70,7 +70,7 @@ namespace MovieApp
             }
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
             
              app.Run(async (context) =>
             {
