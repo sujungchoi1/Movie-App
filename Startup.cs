@@ -34,10 +34,6 @@ namespace MovieApp
             }
 
             Configuration = builder.Build();
-
-            // var MovieApiKey = Configuration["TMDBApiKey"];
-            // var EmailPw = Configuration["EmailPW"];
-
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -75,7 +71,7 @@ namespace MovieApp
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvc();
-
+            
              app.Run(async (context) =>
             {
                 var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";

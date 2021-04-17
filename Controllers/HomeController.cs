@@ -46,7 +46,7 @@ namespace MovieApp.Controllers
         [HttpGet("")]
         public async Task<IActionResult> Index()
         {
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
@@ -71,7 +71,7 @@ namespace MovieApp.Controllers
         [HttpGet("{pageNum}")]
         public async Task<IActionResult> IndexPages(int pageNum)
         {
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
@@ -95,7 +95,7 @@ namespace MovieApp.Controllers
         [HttpGet("upcoming")]
         public async Task<IActionResult> Upcoming()
         {
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
 
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
@@ -117,7 +117,7 @@ namespace MovieApp.Controllers
         [HttpGet("upcoming/{pageNum}")]
         public async Task<IActionResult> UpcomingPages(int pageNum)
         {
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
             
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
@@ -143,7 +143,7 @@ namespace MovieApp.Controllers
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
@@ -213,7 +213,7 @@ namespace MovieApp.Controllers
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
@@ -240,7 +240,7 @@ namespace MovieApp.Controllers
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
@@ -393,7 +393,7 @@ namespace MovieApp.Controllers
         }
         public void email(string toEmail, string body, int movieId, string msg, string sender)
         {
-            var emailPW = _config["Movies:EmailPW"];
+            var emailPW = _config["EmailPW"];
 
             MailAddress to = new MailAddress(toEmail);
             MailAddress from = new MailAddress("cinephilrecommends@gmail.com");
@@ -424,7 +424,7 @@ namespace MovieApp.Controllers
         public async Task<IActionResult> DetailPage(int movieId)
         {
             
-            var movieApiKey = _config["Movies:TMDBApiKey"];
+            var movieApiKey = _config["TMDBApiKey"];
             var currentUser = GetCurrentUser();
             // if (currentUser == null)
             // {
