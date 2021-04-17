@@ -52,8 +52,8 @@ namespace MovieApp
             // services.AddControllersWithViews();
             // services.Configure<AppOptions>(options => Configuration.Bind(options));
 
-            _movieApiKey = Configuration["Movies:TMDBApiKey"];
-            _emailPw = Configuration["Movies:EmailPW"];
+            _movieApiKey = Configuration["TMDBApiKey"];
+            _emailPw = Configuration["EmailPW"];
                         
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddSession();
