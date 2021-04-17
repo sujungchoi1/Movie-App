@@ -13,18 +13,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using System.Net.Mail;
+using Microsoft.Extensions.Configuration;
 using System.Text;
+using System.Configuration;
 
 namespace MovieApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly MyContext dbContext;
+        private readonly IConfiguration _config;
 
-        public HomeController(MyContext context)
+        public HomeController(MyContext context, IConfiguration config)
         {
             dbContext = context;
+            _config = config;
         }
+        
         public User GetCurrentUser()
         {
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -41,11 +46,12 @@ namespace MovieApp.Controllers
         [HttpGet("")]
         public async Task<IActionResult> Index()
         {
-            // Movie[] movieList = new Movie();
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key={movieApiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -65,10 +71,12 @@ namespace MovieApp.Controllers
         [HttpGet("{pageNum}")]
         public async Task<IActionResult> IndexPages(int pageNum)
         {
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc&page={pageNum}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key={movieApiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&sort_by=vote_count.desc&page={pageNum}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -87,13 +95,15 @@ namespace MovieApp.Controllers
         [HttpGet("upcoming")]
         public async Task<IActionResult> Upcoming()
         {
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=c2dc9f4c917b757a08a6c9fff8784481"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key={movieApiKey}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -107,13 +117,15 @@ namespace MovieApp.Controllers
         [HttpGet("upcoming/{pageNum}")]
         public async Task<IActionResult> UpcomingPages(int pageNum)
         {
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+            
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=c2dc9f4c917b757a08a6c9fff8784481&page={pageNum}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key={movieApiKey}&page={pageNum}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -131,10 +143,12 @@ namespace MovieApp.Controllers
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/search/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&query={searchTitle}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/search/movie?api_key={movieApiKey}&query={searchTitle}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -168,7 +182,7 @@ namespace MovieApp.Controllers
 
         //     using (var httpClient = new HttpClient())
         //     {
-        //         using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{randomNum}?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US"))
+        //         using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{randomNum}?api_key={movieApiKey}&language=en-US"))
         //         {
         //             string apiResponse = await response.Content.ReadAsStringAsync();
         //             Console.WriteLine(apiResponse);   
@@ -199,10 +213,12 @@ namespace MovieApp.Controllers
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key={movieApiKey}&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -211,7 +227,7 @@ namespace MovieApp.Controllers
                     ViewBag.genreTwo = genreTwo;
                     ViewBag.rating = rating;
                     ViewBag.date = date;
-                    Console.WriteLine(apiResponse); 
+                    Console.WriteLine(apiResponse);
                 }
             }
 
@@ -224,10 +240,12 @@ namespace MovieApp.Controllers
             var currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
+            var movieApiKey = _config["Movies:TMDBApiKey"];
+
             Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/discover/movie?api_key={movieApiKey}&language=en-US&with_genres={genreOne},{genreTwo}&vote_average.gte={rating}{date}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     movieList = JsonConvert.DeserializeObject<Movie>(apiResponse);
@@ -245,19 +263,19 @@ namespace MovieApp.Controllers
                 ViewBag.Counter = HttpContext.Session.GetInt32("counter");
                 return View("RandomResults", movieList.results.Skip(5).Take(5));
             }
-            else if(HttpContext.Session.GetInt32("counter") >= 3 || movieList.results[0].title == null)
+            else if (HttpContext.Session.GetInt32("counter") >= 3 || movieList.results[0].title == null)
             {
                 HttpContext.Session.Clear();
                 return View("NoMoreResult");
             }
-            else  
+            else
             {
-                var currentCounter = (int)HttpContext.Session.GetInt32("counter")+1;
+                var currentCounter = (int)HttpContext.Session.GetInt32("counter") + 1;
                 HttpContext.Session.SetInt32("counter", currentCounter);
                 ViewBag.Counter = currentCounter;
                 Console.WriteLine(currentCounter);
-                
-                return View("RandomResults", movieList.results.Skip((currentCounter*5)+5).Take(5));
+
+                return View("RandomResults", movieList.results.Skip((currentCounter * 5) + 5).Take(5));
             }
 
             // needs to declare reloadMovies outside of the for loop
@@ -375,6 +393,8 @@ namespace MovieApp.Controllers
         }
         public void email(string toEmail, string body, int movieId, string msg, string sender)
         {
+            var emailPW = _config["Movies:EmailPW"];
+
             MailAddress to = new MailAddress(toEmail);
             MailAddress from = new MailAddress("cinephilrecommends@gmail.com");
             MailMessage message = new MailMessage(from, to);
@@ -384,25 +404,27 @@ namespace MovieApp.Controllers
             // ViewBag.bodyMsg = $"Hey, check out this movie! http://localhost:5000/movie/{movieId}!";
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
-            Credentials = new NetworkCredential("cinephilrecommends", "Cinephil0!@"),
-            EnableSsl = true
+                Credentials = new NetworkCredential("cinephilrecommends", emailPW),
+                EnableSsl = true
             };
             // code in brackets above needed if authentication required 
             try
-            { 
-            client.Send(message);
+            {
+                client.Send(message);
             }
             catch (SmtpException ex)
             {
-            Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.ToString());
             }
-            
+
         }
 
 
         [HttpGet("/movie/{movieId}")]
         public async Task<IActionResult> DetailPage(int movieId)
         {
+            
+            var movieApiKey = _config["Movies:TMDBApiKey"];
             var currentUser = GetCurrentUser();
             // if (currentUser == null)
             // {
@@ -417,7 +439,7 @@ namespace MovieApp.Controllers
             // Movie movieList = new Movie();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{movieId}?api_key=c2dc9f4c917b757a08a6c9fff8784481&language=en-US"))
+                using (var response = await httpClient.GetAsync($"https://api.themoviedb.org/3/movie/{movieId}?api_key={movieApiKey}&language=en-US"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     // Console.WriteLine(apiResponse);   

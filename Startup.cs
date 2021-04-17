@@ -7,27 +7,57 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using MovieApp.Models;
 
 namespace MovieApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private string _movieApiKey = null;
+        private string _emailPw = null;
+        public Startup(IHostEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json",
+                            optional: false,
+                            reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            Configuration = builder.Build();
+
+            // var MovieApiKey = Configuration["TMDBApiKey"];
+            // var EmailPw = Configuration["EmailPW"];
+
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // public Startup(IConfiguration configuration)
+        // {
+        //     Configuration = configuration;
+        // }
+
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddControllersWithViews();
+            // services.Configure<AppOptions>(options => Configuration.Bind(options));
+
+            _movieApiKey = Configuration["Movies:TMDBApiKey"];
+            _emailPw = Configuration["Movies:EmailPW"];
+                        
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddSession();
-            services.AddDbContext<MyContext>(options => options.UseMySql (Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +75,13 @@ namespace MovieApp
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvc();
+
+             app.Run(async (context) =>
+            {
+                var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
+                var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
+                await context.Response.WriteAsync($"Secret is {result}");
+            });
         }
     }
 }

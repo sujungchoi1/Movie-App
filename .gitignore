@@ -1,6 +1,7 @@
 appsettings.json
 
-secrets.txt
+nuget.config
+specialappsettings.config
 
 .DS_Store
 
