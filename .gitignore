@@ -5,5 +5,5 @@ secrets.txt
 .DS_Store
 
 # .NET Core build folders
-bin/
-obj/
+bin/*
+obj/*
