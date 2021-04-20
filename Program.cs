@@ -24,32 +24,25 @@ namespace MovieApp
         
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-            // RunAsync().Wait();
-            // await ProcessRepositories();
-            // GetData();
-            // Console.ReadLine();
-            // Console.ReadKey();
-        }
+            // CreateHostBuilder(args).Build().Run();
 
-        // static async Task RunAsync()
-        // {
-        //     using (var client = new HttpClient())
-        //     {
-        //         client.BaseAddress = new Uri("http://localhost:5000/");
-        //         client.DefaultRequestHeaders.Accept.Clear();
-        //         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        //          HttpResponseMessage response = await client.GetAsync("api/products/1");
-        //         if (response.IsSuccessStatusCode)
-        //         {
-        //             Movie movie = await response.Content.ReadAsAsync>Movie>();
-        //             Console.WriteLine("{0}\t${1}\t{2}", movie.Name, movie.Price, movie.Category);
-        //         }
-        //     }
-        // }
-
-        
+            var host = new HostBuilder()
+                .ConfigureAppConfiguration((hostContext, builder) =>
+                {
+                    if (hostContext.HostingEnvironment.IsDevelopment())
+                    {
+                        builder.AddUserSecrets<Program>();
+                    } 
+                    else 
+                    {
+                        CreateHostBuilder(args).Build().Run();
+                    }
+                })
+                .Build();
+            
+            host.Run();
+            
+        }      
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)

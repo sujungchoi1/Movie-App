@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/MovieApp.csproj",
+  "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/MovieApp.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,83 +15619,83 @@
   "RootNamespace": "MovieApp",
   "Documents": [
     {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/RegisterPage.cshtml",
-      "TargetPath": "Views\\Home\\RegisterPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/DetailPage.cshtml",
-      "TargetPath": "Views\\Home\\DetailPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/RandomPage.cshtml",
-      "TargetPath": "Views\\Home\\RandomPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/LoginPage.cshtml",
-      "TargetPath": "Views\\Home\\LoginPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/RandomResults.cshtml",
-      "TargetPath": "Views\\Home\\RandomResults.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Shared/Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/Dashboard.cshtml",
-      "TargetPath": "Views\\Home\\Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/SearchResult.cshtml",
-      "TargetPath": "Views\\Home\\SearchResult.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/NoMoreResult.cshtml",
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/NoMoreResult.cshtml",
       "TargetPath": "Views\\Home\\NoMoreResult.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/NavbarPartial.cshtml",
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/LoginPage.cshtml",
+      "TargetPath": "Views\\Home\\LoginPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/RandomPage.cshtml",
+      "TargetPath": "Views\\Home\\RandomPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/DetailPage.cshtml",
+      "TargetPath": "Views\\Home\\DetailPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/SearchResult.cshtml",
+      "TargetPath": "Views\\Home\\SearchResult.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/RegisterPage.cshtml",
+      "TargetPath": "Views\\Home\\RegisterPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/RandomResults.cshtml",
+      "TargetPath": "Views\\Home\\RandomResults.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/NavbarPartial.cshtml",
       "TargetPath": "Views\\Home\\NavbarPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/Home/Dashboard.cshtml",
+      "TargetPath": "Views\\Home\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
   ],

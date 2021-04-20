@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/MovieApp.csproj": {}
+    "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/MovieApp.csproj": {}
   },
   "projects": {
-    "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/MovieApp.csproj": {
+    "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/MovieApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/MovieApp.csproj",
+        "projectUniqueName": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/MovieApp.csproj",
         "projectName": "MovieApp",
-        "projectPath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/MovieApp.csproj",
+        "projectPath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/MovieApp.csproj",
         "packagesPath": "/Users/sujungchoi/.nuget/packages/",
-        "outputPath": "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/obj/",
+        "outputPath": "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sujungchoi/Desktop/Coding/C#/MovieApp/NuGet.Config",
+          "/Users/sujungchoi/Desktop/Coding/C#/Movie-App/NuGet.Config",
           "/Users/sujungchoi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -49,13 +49,29 @@
               "target": "Package",
               "version": "[3.1.5, )"
             },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.1, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

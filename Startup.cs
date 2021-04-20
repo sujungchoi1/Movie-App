@@ -18,30 +18,30 @@ namespace MovieApp
     {
         private string _movieApiKey = null;
         private string _emailPw = null;
-        public Startup(IHostEnvironment env)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json",
-                            optional: false,
-                            reloadOnChange: true)
-                .AddEnvironmentVariables();
+        // public Startup(IHostEnvironment env)
+        // {
+        //     var builder = new ConfigurationBuilder()
+        //         .SetBasePath(env.ContentRootPath)
+        //         .AddJsonFile("appsettings.json",
+        //                     optional: false,
+        //                     reloadOnChange: true)
+        //         .AddEnvironmentVariables();
 
 
-            if (env.IsDevelopment())
+        //     if (env.IsDevelopment())
+        //     {
+        //         builder.AddUserSecrets<Startup>();
+        //     }
+
+        //     Configuration = builder.Build();
+        // }
+        // public IConfigurationRoot Configuration { get; }
+        public Startup(IConfiguration configuration)
             {
-                builder.AddUserSecrets<Startup>();
+                Configuration = configuration;
             }
 
-            Configuration = builder.Build();
-        }
-
-        public IConfigurationRoot Configuration { get; }
-
-        // public Startup(IConfiguration configuration)
-        // {
-        //     Configuration = configuration;
-        // }
+        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -72,10 +72,10 @@ namespace MovieApp
             app.UseSession();
             app.UseMvcWithDefaultRoute();
             
-             app.Run(async (context) =>
+            app.Run(async (context) =>
             {
                 var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
-                var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
+                // var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
                 await context.Response.WriteAsync($"Secret is {result}");
             });
         }
