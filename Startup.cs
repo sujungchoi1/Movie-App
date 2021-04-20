@@ -85,6 +85,7 @@ namespace MovieApp
                 var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
                 // var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
                 await context.Response.WriteAsync($"Secret is {result}");
+                return;
             });
         }
     }
