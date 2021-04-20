@@ -68,16 +68,16 @@ namespace MovieApp
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvcWithDefaultRoute();
             
             app.Run(async (context) =>
             {
-                // var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
+                var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
                 // var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
-                // await context.Response.WriteAsync($"Secret is {result}");
-                await context.Response.WriteAsync($"Secret is {_movieApiKey}");
+                await context.Response.WriteAsync($"Secret is {result}");
             });
         }
     }
