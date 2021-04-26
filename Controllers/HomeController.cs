@@ -64,7 +64,7 @@ namespace MovieApp.Controllers
                 .Include(u => u.UserWhoWatches)
                 .ToList();
 
-            return View(movieList.results);
+            return View("Index", movieList.results);
 
         }
 
