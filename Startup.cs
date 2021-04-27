@@ -70,7 +70,6 @@ namespace MovieApp
             }
 
             app.UseDefaultFiles();
-            app.UseStaticFiles();
             app.UseSession();
             // app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
@@ -79,14 +78,15 @@ namespace MovieApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseStaticFiles();
+            // app.Run(async (context) =>
+            // {
+            //     var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
+            //     // var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
+            //     await context.Response.WriteAsync($"Secret is {result}");
+            //     return;
+            // });
             
-            app.Run(async (context) =>
-            {
-                var result = string.IsNullOrEmpty(_movieApiKey) ? "Null" : "Not Null";
-                // var result2 = string.IsNullOrEmpty(_emailPw) ? "Null" : "Not Null";
-                await context.Response.WriteAsync($"Secret is {result}");
-                return;
-            });
         }
     }
 }
