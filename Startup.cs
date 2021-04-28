@@ -53,6 +53,7 @@ namespace MovieApp
                         
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddSession();
+            // services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration["DBInfo:ConnectionString"]));
             services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
         }
 

@@ -76,8 +76,6 @@
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/MovieApp.Views.dll
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/MovieApp.Views.pdb
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/System.Net.Http.Formatting.dll
-/Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.Bcl.AsyncInterfaces.dll
-/Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.Bcl.HashCode.dll
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
@@ -128,3 +126,5 @@
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/obj/Debug/net5.0/ref/MovieApp.dll
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/obj/Debug/net5.0/MovieApp.pdb
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/obj/Debug/net5.0/MovieApp.genruntimeconfig.cache
+/Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/Microsoft.Bcl.HashCode.dll

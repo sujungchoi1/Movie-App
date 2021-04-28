@@ -60,9 +60,9 @@ namespace MovieApp.Controllers
             User currentUser = GetCurrentUser();
             ViewBag.CurrentUser = currentUser;
 
-            ViewBag.MyMovie = dbContext.Watches
-                .Include(u => u.UserWhoWatches)
-                .ToList();
+            // ViewBag.MyMovie = dbContext.Watches
+            //     .Include(u => u.UserWhoWatches)
+            //     .ToList();
 
             return View("Index", movieList.results);
 
