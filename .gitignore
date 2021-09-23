@@ -4,7 +4,10 @@ nuget.config
 specialappsettings.config
 
 .DS_Store
+/.vscode
 
 # .NET Core build folders
 bin/
 obj/
+
+demo.mov

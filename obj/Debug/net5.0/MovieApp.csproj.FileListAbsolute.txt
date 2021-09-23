@@ -63,7 +63,6 @@
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/pub/pub/appsettings.json
 /Users/sujungchoi/Desktop/Coding/C#/MovieApp/bin/Debug/net5.0/specialappsettings.config
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/nuget.config
-/Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/specialappsettings.config
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/web.config
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/appsettings.Development.json
 /Users/sujungchoi/Desktop/Coding/C#/Movie-App/bin/Debug/net5.0/appsettings.json
