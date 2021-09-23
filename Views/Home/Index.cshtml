@@ -40,15 +40,9 @@
                 <a href="/upcoming" class="btn btn-outline-secondary">Upcoming</a>
                 }
                 <a href="/random" class="btn btn-outline-secondary">Want Suggestions?</a>
-                @* <select name="Genre" id="">
-                    <option value="">Action</option>
-                </select> *@
+  
             </div>
-            @* <div>
-                <button type="button" class="randomButton btn btn-outline-warning">Give me some suggestions!</button>
-            </div> *@
-        @* </div> *@
-        @* popular movie listing *@
+
         <div class="mainGroup d-flex flex-wrap justify-content-md-between justify-content-center">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
@@ -85,35 +79,9 @@
                                     <span class="rating card-text" style="border:3px double darkOrange;">@r.vote_average </span>
                                     }
                                 </div>
-                                @* @foreach (var g in Genre)
-                                    {
-                                    List all genres available
-                                    } *@
-                                @* <p class="genre card-text">@r.genre_ids[0] </p> *@
+
                             </div>
-                            @* only shows if the user is logged in *@
-                            @* @if(ViewBag.CurrentUser != null)
-                            {
-                                @foreach(Watch watch in ViewBag.thisUser.WatchedMovies)
-                                {
-                                    if(r.id == watch.MovieId)
-                                    {
-                                        <a class="watchList btn btn-danger" href="/remove-watch/@r.id">Remove from Watch List</a>
-                                        ViewBag.watched = false;
-                                        break;
-                                    }
-                                    
-                                }
-                            } *@
-                            
-                                @* if(!ViewBag.watched){
-                                    <a class="watchList btn btn-primary" href="/watch/@r.id/@r.title">Add to Watch List</a>                   
-                                } *@
-                            
-                            @* @if (ViewBag.currentUser != null)
-                            {
-                            <a class="watchList btn btn-primary" href="/watch/@r.id/@r.title">Add to Watch List</a>
-                            } *@
+
                         </div>
                     </div>
                     
